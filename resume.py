@@ -44,7 +44,7 @@ resume = Resume(
                     description=BulletedList(
                         [
                             "Demand prediction using neural network models.",
-                            "Data analysis, visualization and reporting.",
+                            "Data analysis, visualization, and reporting.",
                             "Database programming and design in MySQL."
                         ]
                     ),
@@ -137,7 +137,24 @@ resume = Resume(
                     description="Since I've worked in small companies, I've been involved in the entire product development lifecycle, from idea to production. I've been involved in key business decisions and product design.",
                 )
             ]
-        )
+        ),
+        Section(
+            title="Teaching",
+            entries=[
+                SectionEntry(
+                    title="Calculus Teaching Assistant",
+                    caption="Reykjavik University",
+                    dates="January - May 2024",
+                    description="In this course that covered single- and multivariable calculus, I held exercise sessions, graded assignments, and helped organize the course. I did this in my free time as a side job while working at AIVA.",
+                ),
+                SectionEntry(
+                    title="Algorithms Teaching Assistant",
+                    caption="Reykjavik University",
+                    dates="August - December 2023",
+                    description="Here I held exercise sessions, graded assignments, and helped organize the course.",
+                ),
+            ]
+        ),
     ]
 )
 
