@@ -21,10 +21,17 @@ resume = Resume(
             title="Experience",
             entries=[
                 SectionEntry(
+                    title=LinkText("Monumental", "https://www.monumental.co/"),
+                    caption="Machine Vision Software Engineer",
+                    location="Amsterdam, Netherlands",
+                    dates="September 2024 - present",
+                    description="Develop and implement vision algorithms to allow construction robots to autonomously build brick walls."
+                ),
+                SectionEntry(
                     title=LinkText("AIVA", "https://www.aivagolf.com/"),
                     caption="Computer Vision and Software Engineer",
                     location="Reykjavik, Iceland",
-                    dates="September 2023 - present",
+                    dates="September 2023 - August 2024",
                     description=BulletedList(
                         [
                             "Real-time vision tasks with data from calibrated cameras, such as 3D pose estimation.",
