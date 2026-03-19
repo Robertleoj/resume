@@ -1,6 +1,14 @@
-# Koushik Krishnan's Resume
-
-from resume_builder.resume_builder import Resume, Section, SectionEntry, ContactInfo, ConcatText, ItalicsText, UnderlinedText, LinkText, BulletedList
+from resume_builder.resume_builder import (
+    Resume,
+    Section,
+    SectionEntry,
+    ContactInfo,
+    ConcatText,
+    ItalicsText,
+    UnderlinedText,
+    LinkText,
+    BulletedList,
+)
 
 resume = Resume(
     contact_info=ContactInfo(
@@ -14,9 +22,16 @@ resume = Resume(
             ),
             LinkText("github.com/Robertleoj", "https://github.com/Robertleoj"),
         ],
-        tag_line="An AI engineer specializing in computer vision.",
     ),
-    sections = [
+    sections=[
+        Section(
+            title="",
+            entries=[
+                SectionEntry(
+                    description="Machine vision engineer building production robotics systems. Specialized in camera systems, 3D vision, and real-world perception."
+                ),
+            ],
+        ),
         Section(
             title="Experience",
             entries=[
@@ -25,22 +40,33 @@ resume = Resume(
                     caption="Machine Vision Software Engineer",
                     location="Amsterdam, Netherlands",
                     dates="September 2024 - present",
-                    description="Develop and implement vision algorithms to allow construction robots to autonomously build brick walls."
+                    description=ConcatText(
+                        "Robotics scale-up that makes masonry robots.",
+                        BulletedList(
+                            [
+                                "Built and deployed a photogrammetry pipeline for large-scale construction site reconstruction.",
+                                "Designed and shipped a stereo camera system for sub-mm brick analysis on a robotic end-effector.",
+                                "Developed deep learning models for 3D reconstruction and perception under harsh real-world conditions.",
+                                "Improved robot kinematics calibration and debugging workflows.",
+                            ]
+                        ),
+                    ),
                 ),
                 SectionEntry(
                     title=LinkText("AIVA", "https://www.aivagolf.com/"),
                     caption="Computer Vision and Software Engineer",
                     location="Reykjavik, Iceland",
                     dates="September 2023 - August 2024",
-                    description=BulletedList(
-                        [
-                            "Real-time vision tasks with data from calibrated cameras, such as 3D pose estimation.",
-                            "Low-level C++ programming for hardware-synchronized image acquisition.",
-                            "Integrating these solutions into our product.",
-                            "Design and manage the PostgreSQL database.",
-                            "Design and implement data pipelines.",
-                            "Contribute to key business decisions.",
-                        ]
+                    description=ConcatText(
+                        "Golf swing analysis using calibrated multi-camera systems",
+                        BulletedList(
+                            [
+                                "Built real-time 3D human pose estimation from calibrated multi-camera data.",
+                                "Wrote low-level C++ for hardware-synchronized image acquisition.",
+                                "Designed and managed the PostgreSQL database.",
+                                "Designed and implemented the data pipelines for the cameras.",
+                            ]
+                        ),
                     ),
                 ),
                 SectionEntry(
@@ -48,13 +74,75 @@ resume = Resume(
                     caption="AI and Software Engineer",
                     location="Reykjavik, Iceland",
                     dates="April 2021 - August 2023",
+                    description="Demand prediction with neural networks, data analysis, and database design in MySQL.",
+                ),
+            ],
+        ),
+        Section(
+            title="Education",
+            entries=[
+                SectionEntry(
+                    title=LinkText("Reykjavik University", url="https://en.ru.is/"),
+                    dates="August 2020 - May 2023",
+                    description=ConcatText(
+                        "BSc in Discrete Mathematics and Computer Science.",
+                        BulletedList(
+                            [
+                                "Graduated top of my class with a grade average of 9.8/10.",
+                                "Dean's list for all semesters.",
+                            ]
+                        ),
+                    ),
+                )
+            ],
+        ),
+        Section(
+            title="Skills",
+            entries=[
+                SectionEntry(
                     description=BulletedList(
                         [
-                            "Demand prediction using neural network models.",
-                            "Data analysis, visualization, and reporting.",
-                            "Database programming and design in MySQL."
+                            "Cameras & Optics - camera/lens selection, calibration, integration",
+                            "Photogrammetry - large-scale reconstruction systems",
+                            "Stereo Vision - multi-camera systems, depth, calibration",
+                            "Deep Learning - training + deploying vision models",
+                            "Systems - real-time pipelines, concurrency, architecture",
                         ]
                     ),
+                ),
+            ],
+        ),
+        Section(
+            title="Tech",
+            entries=[
+                SectionEntry(
+                    description="Python, C++, PyTorch, OpenCV, Ceres, Eigen, OpenGL, Nix, PostgreSQL",
+                ),
+            ],
+        ),
+        Section(
+            title="Personal Projects",
+            entries=[
+                SectionEntry(
+                    title=LinkText(
+                        "lensboy - camera calibration library (Python)",
+                        "https://github.com/Robertleoj/lensboy",
+                    ),
+                    description=BulletedList(
+                        [
+                            "Developed spline-based distortion models and board warp estimation for high-precision calibration",
+                            "Designed a flexible, engineer-friendly calibration pipeline beyond standard OpenCV approaches",
+                            "Applied in real-world camera systems requiring sub-mm accuracy",
+                        ]
+                    ),
+                    dates="February 2026",
+                ),
+                SectionEntry(
+                    title=LinkText(
+                        "slamd - GPU-accelerated 3D visualization library",
+                        url="https://github.com/Robertleoj/slamd",
+                    ),
+                    description="Real-time 3D visualization library built with C++, OpenGL, and ImGUI.",
                 ),
             ],
         ),
@@ -71,98 +159,7 @@ resume = Resume(
                 ),
             ],
         ),
-        Section(
-            title="Education",
-            entries=[
-                SectionEntry(
-                    title=LinkText(
-                        "Reykjavik University", url="https://en.ru.is/",
-                    ),
-                    dates="August 2020 - May 2023",
-                    description=ConcatText(
-                        "BSc in Discrete Mathematics and Computer Science.",
-                        BulletedList(
-                            [
-                                "Graduated top of my class with a grade average of 9.8/10.",
-                                "Dean's list for all semesters.",
-                            ]
-                        )
-                    ),
-                )
-            ],
-        ),
-        Section(
-            title="Personal Projects",
-            entries=[
-                SectionEntry(
-                    title=LinkText(
-                        "Liver Cancer Segmentation using Deep Neural Networks", url="https://github.com/Robertleoj/APDS-final-project"
-                    ),
-                    description="A one-week project where we applied semantic segmentation with a 2.5D convolutional U-net to locate liver cancer in CT scans.",
-                    dates="December 2022"
-                ),
-                SectionEntry(
-                    title=LinkText(
-                        "Video Game in C++ with an AI Opponent",
-                        url="https://github.com/Robertleoj/Ultimate-Tic-Tac-Toe"
-                    ),
-                    description="Fun board game implemented in C++, with an AI opponent implemented with Monte Carlo Tree Search.",
-                    dates="March 2022"
-                )
-            ]
-        ),
-        Section(
-            title="Skills",
-            entries=[
-                SectionEntry(
-                    title="AI and Machine Learning",
-                    description="I'm skilled in deep learning, and specialize in computer vision. My preferred stack is Python with PyTorch and OpenCV along with the rest of the scientific computing suite in Python (NumPy, Pandas, Matplotlib, Einops, etc). I usually use C++ with a binding library to implement performance-critical algorithms. I also have experience with reinforcement learning and natural language processing.",
-
-                ),
-                SectionEntry(
-                    title="Mathematics",
-                    description="I have a strong background in mathematics, especially in discrete mathematics, linear algebra, multivariable calculus, and probability theory.",
-                ),
-                SectionEntry(
-                    title="Software Engineering",
-                    description=ConcatText(
-                        "Since my work has been in small companies, I have experience with a wide variety of software engineering areas such as:",
-                        BulletedList(
-                            [
-                                "Database design, programming, and management, mostly in MySQL and PostgreSQL.",
-                                "Data engineering.",
-                                "Concurrent programming (mostly in C++).",
-                                "Low-level programming in C++.",
-                                "Docker and Kubernetes.",
-                                "Backend programming in Python."
-                            ]
-                        )
-                    )
-                ),
-                SectionEntry(
-                    title="Product Development",
-                    description="Since I've worked in small companies, I've been involved in the entire product development lifecycle, from idea to production. I've been involved in key business decisions and product design.",
-                )
-            ]
-        ),
-        Section(
-            title="Teaching",
-            entries=[
-                SectionEntry(
-                    title="Calculus Teaching Assistant",
-                    caption="Reykjavik University",
-                    dates="January - May 2024",
-                    description="In this course that covered single- and multivariable calculus, I held exercise sessions, graded assignments, and helped organize the course. I did this in my free time as a side job while working at AIVA.",
-                ),
-                SectionEntry(
-                    title="Algorithms Teaching Assistant",
-                    caption="Reykjavik University",
-                    dates="August - December 2023",
-                    description="Here I held exercise sessions, graded assignments, and helped organize the course.",
-                ),
-            ]
-        ),
-    ]
+    ],
 )
 
 if __name__ == "__main__":
